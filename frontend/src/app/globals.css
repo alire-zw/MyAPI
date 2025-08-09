@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+/* YekanNewFace Font Faces */
+@font-face {
+  font-family: 'YekanNewFace';
+  src: url('/fonts/YekanNewFaceD1-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YekanNewFace';
+  src: url('/fonts/YekanNewFaceD1-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YekanNewFace';
+  src: url('/fonts/YekanNewFaceD1-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YekanNewFace';
+  src: url('/fonts/YekanNewFaceD1-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YekanNewFace';
+  src: url('/fonts/YekanNewFaceD1-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YekanNewFace';
+  src: url('/fonts/YekanNewFaceD1-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --muted: #6b7280;
+}
+
+/* explicit theme override */
+html[data-theme='light'] {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+html[data-theme='dark'] {
+  --background: #121212; /* requested dark background */
+  --foreground: #ffffff; /* white text */
+  --surface: #1d1d1d; /* cards/surfaces */
+  --border: #1d1d1d; /* borders */
+  --muted: #c6c6c6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: 'YekanNewFace', var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html, body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'YekanNewFace', Arial, Helvetica, sans-serif;
+  direction: rtl;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar theming based on data-theme */
+.sidebar { background: #ffffff; }
+.sidebar-header {
+  border-bottom: 1px solid #e5e7eb;
+}
+.sidebar-section-title { color: #6b7280; font-size: 0.7rem; letter-spacing: 0.04em; }
+.menu-list { display: grid; gap: 2px; }
+.menu-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 10px; color: #111827; font-size: 0.92rem; }
+.menu-item:hover {
+  background: #f3f4f6;
+}
+.menu-item-danger { color: #dc2626; }
+.menu-item-danger:hover { color: #b91c1c; }
+.menu-item-muted {
+  color: #6b7280;
+}
+.menu-chevron {
+  margin-right: auto;
+  color: #6b7280;
+}
+.submenu {
+  margin-right: 16px;
+  border-right: 2px solid #e5e7eb;
+  margin-top: 4px;
+  padding-right: 10px;
+}
+.submenu .menu-item { border-radius: 8px; padding: 7px 9px; font-size: 0.88rem; }
+
+/* Dark */
+html[data-theme='dark'] .sidebar { background: #121212; }
+html[data-theme='dark'] .sidebar-header {
+  border-color: #1d1d1d;
+}
+html[data-theme='dark'] .sidebar-section-title {
+  color: #b3b3b3;
+}
+html[data-theme='dark'] .menu-item {
+  color: #ffffff;
+}
+html[data-theme='dark'] .menu-item-danger { color: #ef4444; }
+html[data-theme='dark'] .menu-item-danger:hover { color: #dc2626; }
+html[data-theme='dark'] .menu-item-muted {
+  color: #c6c6c6;
+}
+html[data-theme='dark'] .menu-item:hover {
+  background: #1d1d1d; /* requested item bg */
+}
+html[data-theme='dark'] .submenu {
+  border-right-color: #1d1d1d;
+}
